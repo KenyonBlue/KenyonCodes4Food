@@ -1,0 +1,50 @@
+.home-container {
+    background: rgb(209,209,209);
+background: linear-gradient(90deg, rgba(209,209,209,1) 0%, 
+rgba(222,222,222,1) 35%, rgba(250,250,250,1) 100%);
+    border: 1px solid red;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link-to-dev {
+    display: flex;
+    height: 30px;
+    width: 16vw;
+    border-radius: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    background: #dedede;
+    box-shadow: inset 5px 5px 4px #595959, 
+                inset -5px -5px 4px rgb(233, 233, 233);
+    text-align: center;
+    border: none;
+}
+
+.session {
+    margin-top: 8px;
+    width: 48%;
+}
+
+.session-id-container {
+    margin-top: 8px;
+    width: 48%;
+}
+
+.image {
+    height: 85px;
+    width: 50vw;
+}
+
+mat-grid-list {
+    border-bottom: 1px solid rgb(83, 83, 83);
+    box-shadow: 2px 2px #888888;
+    border-bottom: 1px solid black;
+}
+
+.hacker-image {
+    height: 60px;
+    width: 60px;
+}
