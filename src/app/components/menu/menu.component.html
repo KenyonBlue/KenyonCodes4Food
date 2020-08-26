@@ -1,0 +1,17 @@
+<div class="menu-wrapper menu-base" #menuBase>
+    <div class="menu">
+        <div class="elements" #elements>
+            <ng-container *ngFor="let menu of menuData">
+                <ng-container *ngIf="menu.url; else withoutUrl">
+                    <a [routerLink]="[menu.url]" class="element"> {{menu.name}} </a>
+                </ng-container>
+                <ng-template #withoutUrl>
+                    <a [routerLink]="[menu.url]" class="element"> {{menu.name}} </a>
+                </ng-template>
+            </ng-container>
+        </div>
+        <button class="menu-button" (click)="expand()">
+            click here 2:41
+        </button>
+    </div>
+</div>
