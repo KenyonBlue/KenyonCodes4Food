@@ -1,6 +1,6 @@
 .menu-base {
     --color-main: #464f5e;
-    --color-light: #7d889a;
+    // --color-light: #7d889a;
     --borderRadius: 100px;
     --menuHeight: 60px;
     font-family: Arial, Helvetica, sans-serif;
@@ -19,7 +19,7 @@
     right: 0;
     height: inherit;
     background-color: var(--color-light);
-    box-shadow: 0 10px 15px rgba(0,0,0,.15);
+    // box-shadow: 0 10px 15px rgba(0,0,0,.15);
 }
 
 .elements {

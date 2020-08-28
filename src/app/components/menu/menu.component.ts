@@ -42,19 +42,55 @@ export class MenuComponent implements OnChanges, AfterViewInit {
   public animator = new Animator;
 
   @Input() menuData: MenuData[];
+  @Input() menuStyle?: MenuStyle = 'default';
+  @Input()
+  set menuColor({ color, menuColor }) {
+    this.changeMenuColors({ color, menuColor});
+  }
 
   constructor(private cdr: ChangeDetectorRef) {
     console.log(this.menuData)
    }
 
   ngOnChanges() {
+    // this.changeMenuStyle();
   }
 
   ngAfterViewInit() {
     this.elementsAnimationHandler(null, this.elements.nativeElement, this.animator.timeline, {hideElements: true});
   }
 
-  expand() {
+  // private changeMenuStyle(): void {
+  //   if (this.menuStyle === 'solid') {
+  //     this.menu.nativeElement.style.backgroundColor = this.BaseColors.color;
+  //     this.cdr.detectChanges();
+  //     if (this.elements  && this.elements.nativeElement) {
+  //       this.elements.nativeElement.childNodes.forEach(
+  //         (node: HTMLAnchorElement) => 
+  //         node && 
+  //         node.style && 
+  //         (node.style.backgroundColor = this.BaseColors.menuColor)
+  //       )
+  //     }
+  //   }
+  // }
+
+  private get BaseColors(): { color: string; menuColor: string } {
+    const colorMainVariable = this.animator.tween.getProperty(this.menuBase.nativeElement, '--color-main');
+    const colorMainVariableLight = this.animator.tween.getProperty(this.menuBase.nativeElement, '--color-light')
+
+    return {
+      color: typeof colorMainVariable === 'string' && colorMainVariable,
+      menuColor: typeof colorMainVariableLight === 'string' && colorMainVariableLight
+    }
+  }
+
+  private changeMenuColors({ color, menuColor }): void {
+    this.menuBase.nativeElement.style.setProperty('--color-main', color);
+    this.menuBase.nativeElement.style.setProperty('--color-light', menuColor);
+  }
+
+  public expand(): void {
     this.expandState === 'default' 
     ? (this.expandState = 'expanded') 
     : (this.expandState = 'default');
